@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | MIMSCO Logistics</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="signup-page">
+
+    <div class="signup-container">
+
+        <h1>New Account</h1>
+
+        <form id="signupForm">
+
+            <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                required
+            >
+
+            <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                required
+            >
+
+            <div class="phone-field">
+                <select name="countryCode" aria-label="Country code">
+                    <option value="+234">🇳🇬 +234</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+233">🇬🇭 +233</option>
+                </select>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Mobile Phone"
+                    required
+                >
+            </div>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <div class="password-field">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    minlength="8"
+                >
+
+                <button
+                    type="button"
+                    id="togglePassword"
+                    aria-label="Show password"
+                >◉</button>
+            </div>
+
+            <select name="referral" class="referral" required>
+                <option value="">How Did You Hear About Us?</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Google">Google</option>
+                <option value="Friend">Friend or Family</option>
+                <option value="Advertisement">Advertisement</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div class="sms-notice">
+                By providing your phone number, you agree to receive
+                messages from MIMSCO Logistics regarding shipment updates
+                and customer support. Message and data rates may apply.
+            </div>
+
+            <label class="terms">
+                <input type="checkbox" name="terms" required>
+                <span>I agree to the Terms and Conditions</span>
+            </label>
+
+            <button type="submit" class="create-account">
+                CREATE ACCOUNT
+            </button>
+
+            <p id="formMessage" aria-live="polite"></p>
+
+            <p class="login-link">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+    <script>
+        const password = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", function () {
+            if (password.type === "password") {
+                password.type = "text";
+                togglePassword.textContent = "◎";
+                togglePassword.setAttribute("aria-label", "Hide password");
+            } else {
+                password.type = "password";
+                togglePassword.textContent = "◉";
+                togglePassword.setAttribute("aria-label", "Show password");
+            }
+        });
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("formMessage").textContent =
+                "Your form is ready. Account registration will be connected to Supabase next.";
+        });
+    </script>
+
+</body>
+</html>

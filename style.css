@@ -180,6 +180,8 @@ footer {
 
 
 
+
+
 @media (max-width: 768px) {
 
     header {
@@ -229,4 +231,169 @@ footer {
     .services h2 {
         font-size: 26px;
     }
+
+}
+
+
+.signup-page {
+    background-color: #eeeeee;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.signup-container {
+    background-color: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 35px 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.signup-container h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    font-weight: normal;
+    text-align: center;
+    color: #333333;
+    margin: 0 0 30px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.signup-container input,
+.signup-container select {
+    width: 100%;
+    height: 58px;
+    padding: 0 18px;
+    border: 1px solid #d6d6d6;
+    border-radius: 35px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.signup-container input:focus,
+.signup-container select:focus {
+    border-color: #557da8;
+}
+
+.phone-field,
+.password-field {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d6d6d6;
+    border-radius: 35px;
+    height: 58px;
+    overflow: hidden;
+}
+
+.phone-field select {
+    width: 115px;
+    border: none;
+    border-radius: 0;
+    padding: 0 8px 0 14px;
+}
+
+.phone-field input,
+.password-field input {
+    border: none;
+    border-radius: 0;
+}
+
+.password-field button {
+    border: none;
+    background: white;
+    padding: 10px 18px;
+    font-size: 21px;
+    cursor: pointer;
+    color: #555555;
+}
+
+.signup-container .referral {
+    cursor: pointer;
+}
+
+.sms-notice {
+    background-color: #d9f1f3;
+    color: #426b75;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #557da8;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.terms input {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.create-account {
+    height: 55px;
+    background-color: #173b5e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.create-account:hover {
+    background-color: #24577f;
+}
+
+.login-link {
+    text-align: center;
+    font-size: 13px;
+    color: #555555;
+}
+
+.login-link a {
+    color: #557da8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#formMessage {
+    text-align: center;
+    font-size: 13px;
+    color: #24577f;
+}
+
+
+@media (max-width: 480px) {
+
+    .signup-container {
+        padding: 25px 18px;
+    }
+
+    .signup-container h1 {
+        font-size: 34px;
+    }
+
 }
