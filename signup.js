@@ -64,18 +64,15 @@ form.addEventListener('submit', async function (event) {
     button.disabled = false;
 
     if (error) {
+    message.textContent = error.message;
+} else {
+    message.textContent = 'Account created successfully!';
 
-        message.textContent = error.message;
+    form.reset();
 
-    } else {
-
-        message.textContent =
-            'Account request successful! Check your email if confirmation is required.';
-
-        form.reset();
-        password.type = 'password';
-        togglePassword.textContent = '◉';
-
-    }
+    setTimeout(() => {
+        window.location.href = 'motio graphics.gif';
+    }, 2000);
+}
 
 });
