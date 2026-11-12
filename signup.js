@@ -71,7 +71,7 @@ form.addEventListener('submit', async function (event) {
     form.reset();
 
     setTimeout(() => {
-        window.location.href = 'motio graphics.gif';
+        window.location.href = 'welcome.html';
     }, 2000);
 }
 
