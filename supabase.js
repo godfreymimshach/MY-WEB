@@ -5,7 +5,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SUPABASE_URL = 'https://gstslforgzsmwuuyynro.supabase.co';
 
 // Your Supabase Publishable Key
-const SUPABASE_KEY = 'sb_publishable_tYlydfDey-YaG6z-eF30zw_RYPifPkdD';
+const SUPABASE_KEY = 'sb_publishable_tYlydfDey-YaG6z-eF30zw_RYPifPkd';
 
 // Connect to Supabase
 export const supabase = createClient(
