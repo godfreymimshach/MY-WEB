@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body class="signup-page">
 
     <div class="signup-container">
@@ -45,7 +47,7 @@
                 LOGIN
             </button>
 
-            <p id="loginMessage"></p>
+            <p id="loginMessage" aria-live="polite"></p>
 
             <p class="login-link">
                 Don't have an account?
@@ -60,31 +62,6 @@
 
     </div>
 
-    <script>
-
-        const password = document.getElementById("loginPassword");
-
-        document.getElementById("showLoginPassword").addEventListener("click", function() {
-
-            if (password.type === "password") {
-                password.type = "text";
-            } else {
-                password.type = "password";
-            }
-
-        });
-
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            document.getElementById("loginMessage").textContent =
-                "Login form ready. Supabase authentication will be connected next.";
-
-        });
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase.js"></script>
+        <script type="module" src="./login.js"></script>
 </body>
 </html>
