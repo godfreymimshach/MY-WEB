@@ -386,6 +386,9 @@ footer {
 }
 
 
+
+/* SIGN-UP PAGE MOBILE DESIGN */
+
 @media (max-width: 480px) {
 
     .signup-container {
@@ -397,3 +400,117 @@ footer {
     }
 
 }
+
+
+/* SHIPPING BENEFITS SECTION */
+
+.benefits-section {
+    width: 100%;
+    background-color: #f0f3fa;
+    padding: 65px 4%;
+    text-align: center;
+}
+
+.benefits-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #292f3b;
+    margin-bottom: 55px;
+}
+
+.benefits-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.benefit {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 22px;
+    text-align: left;
+    min-width: 0;
+}
+
+.benefit-icon {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    background-color: #1d3267;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    color: #292f3b;
+    margin: 0 0 10px;
+}
+
+.icon-line {
+    width: 45px;
+    height: 3px;
+    background-color: #1d3267;
+    margin-bottom: 12px;
+}
+
+.benefit-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555b66;
+}
+
+.signup-today-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 18px 30px;
+    background-color: #1d3267;
+    color: white;
+    text-decoration: none;
+    border-radius: 35px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.signup-today-btn:hover {
+    background-color: #0875d1;
+}
+
+
+/* BENEFITS MOBILE DESIGN */
+
+@media (max-width: 768px) {
+
+    .benefits-section h2 {
+        font-size: 27px;
+        margin-bottom: 35px;
+    }
+
+    .benefits-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .benefit {
+        width: 100%;
+    }
+
+}
+
