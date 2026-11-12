@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     background: #ffffff;
     color: #172b45;
 }
@@ -22,13 +22,15 @@ header {
     background: #ffffff;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
+.logo img{
+    width: 150px;
+    height:auto;
     color: #12345a;
 }
 
 nav {
+    weight: 
+    height: auto;
     display: flex;
     gap: 30px;
 }
