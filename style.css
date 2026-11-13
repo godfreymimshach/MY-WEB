@@ -514,3 +514,126 @@ footer {
 
 }
 
+/* LOGISTICS DASHBOARD */
+
+.dashboard-page {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    background-color: #080808;
+    color: #ffffff;
+}
+
+.dashboard-page h1,
+.dashboard-page h2,
+.dashboard-page p,
+.dashboard-page nav a {
+    color: #ffffff;
+}
+
+.dashboard-card {
+    background-color: #151515;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.dashboard-section {
+    background-color: #101010;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+/* MIMSCO LOGISTICS HERO SECTION */
+
+.logistics-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 35px;
+    padding: 45px;
+    min-height: 480px;
+    background: #07172b;
+    border: 1px solid #1d3450;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 45px;
+}
+
+.hero-content {
+    padding: 20px;
+}
+
+.hero-label {
+    color: #ff8a00;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 65px;
+    line-height: 1;
+    margin-bottom: 22px;
+}
+
+.hero-content p {
+    color: #c5d0df;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: #ff8500;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #e56f00;
+}
+
+.hero-image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+    .logistics-hero {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+}
+

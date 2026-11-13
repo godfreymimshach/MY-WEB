@@ -38,6 +38,8 @@ form.addEventListener('submit', async function (event) {
 
     const passwordValue = password.value;
 
+    const preferredService = form.elements['preferredService'].value;
+
     try {
 
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -50,11 +52,26 @@ form.addEventListener('submit', async function (event) {
 
         if (error) {
             message.textContent = error.message;
-        } else {
-            message.textContent = 'Login successful!';
+        
+} else {
+    message.textContent = 'Login successful!';
 
-            window.location.href = 'dashboard.html';
-        }
+    const dashboardPages = {
+        'logistics': 'logistics-dashboard.html',
+        'vehicle-sales': 'vehicle-dashboard.html',
+        'hire-purchase': 'hire-purchase.html',
+        'my-account': 'account-dashboard.html'
+    };
+
+    const selectedPage = dashboardPages[preferredService];
+
+    if (selectedPage) {
+        window.location.href = selectedPage;
+    } else {
+        message.textContent = 'Please select a service.';
+    }
+}
+
 
     } catch (error) {
 
