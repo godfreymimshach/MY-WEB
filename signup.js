@@ -64,16 +64,12 @@ form.addEventListener('submit', async function (event) {
 
     button.disabled = false;
 
-    if (error) {
+   if (error) {
     message.textContent = error.message;
 } else {
-    message.textContent = 'Account created successfully!';
+    message.textContent =
+        'Registration successful! Please check your email and click the verification link to continue.';
 
     form.reset();
-
-    setTimeout(() => {
-        window.location.href = 'welcome.html';
-    }, 2000);
 }
-
 });
