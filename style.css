@@ -779,5 +779,49 @@ footer {
     color: #24577f;
     line-height: 1.6;
 }
+
+.fleet-map-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.fleet-stat-card {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.fleet-stat-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #aeb8c5;
+    margin: 18px 0 10px;
+}
+
+.stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #ffffff;
+}
+
+.stat-description {
+    font-size: 12px;
+    color: #8993a0;
+}
+
+@media (max-width: 768px) {
+    .fleet-map-info {
+        grid-template-columns: 1fr;
+    }
+}
+
 }
 
