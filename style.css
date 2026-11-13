@@ -29,7 +29,6 @@ header {
 }
 
 nav {
-    weight: 
     height: auto;
     display: flex;
     gap: 30px;
@@ -763,5 +762,22 @@ footer {
     .map-placeholder {
         min-height: 250px;
     }
+   
+   
+    /* LOGIN BUTTON LOADING STATE */
+
+.create-account:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* LOGIN PAGE */
+
+.signup-container #loginMessage {
+    text-align: center;
+    font-size: 13px;
+    color: #24577f;
+    line-height: 1.6;
+}
 }
 
