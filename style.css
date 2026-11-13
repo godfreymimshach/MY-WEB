@@ -574,7 +574,7 @@ footer {
     margin-bottom: 18px;
 }
 
-.hero-content h1 {
+ .logistics-hero .hero-content h1 {
     color: #ffffff;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 65px;
@@ -582,7 +582,7 @@ footer {
     margin-bottom: 22px;
 }
 
-.hero-content p {
+.logistics-hero .hero-content p {
     color: #c5d0df;
     font-family: 'Poppins', sans-serif;
     line-height: 1.8;
