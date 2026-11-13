@@ -49,16 +49,17 @@ form.addEventListener('submit', async function (event) {
         password: passwordValue,
 
         options: {
-            data: {
-                first_name: firstName,
-                last_name: lastName,
-                full_name: firstName + ' ' + lastName,
-                phone: fullPhone,
-                referral: referral,
-                terms_accepted: true
-            }
-        }
+    emailRedirectTo: 'https://godfreymimshach.github.io/MY-WEB/welcome.html',
 
+    data: {
+        first_name: firstName,
+        last_name: lastName,
+        full_name: firstName + ' ' + lastName,
+        phone: fullPhone,
+        referral: referral,
+        terms_accepted: true
+    }
+}
     });
 
     button.disabled = false;
