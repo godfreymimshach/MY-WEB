@@ -823,5 +823,131 @@ footer {
     }
 }
 
+
+/* LIVE FLEET MAP SECTION */
+
+.live-fleet-section {
+    background: #080d17;
+    padding: 50px 35px;
+    margin-top: 30px;
+    border-radius: 18px;
+    color: #ffffff;
+}
+
+.live-fleet-section .section-heading h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+.live-fleet-section .section-heading p {
+    color: #aeb8c5;
+}
+
+.live-fleet-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+/* MAP PLACEHOLDER */
+
+.fleet-map-placeholder {
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    padding: 25px;
+    background:
+        radial-gradient(circle at 25% 35%, #263d5b, transparent 35%),
+        radial-gradient(circle at 75% 70%, #172d49, transparent 40%),
+        #101d30;
+    border: 1px solid #293d57;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fleet-map-placeholder p {
+    color: #aeb8c5;
+    font-size: 14px;
+    text-align: center;
+}
+
+.map-pin {
+    font-size: 35px;
+    margin-top: 15px;
+}
+
+.map-route {
+    color: #ff9b35;
+    font-size: 11px;
+    margin-top: 12px;
+    letter-spacing: 2px;
+}
+
+/* VEHICLE STATUS PANEL */
+
+.fleet-status-panel {
+    background: #111c2c;
+    border: 1px solid #293d57;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.fleet-status-panel h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 23px;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.fleet-status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #293447;
+    color: #c5d0df;
+    font-size: 13px;
+}
+
+.fleet-status-item:last-child {
+    border-bottom: none;
+}
+
+.fleet-status-item strong {
+    color: #ff9b35;
+    font-size: 18px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+    .live-fleet-section {
+        padding: 30px 18px;
+    }
+
+    .live-fleet-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .fleet-map-placeholder {
+        min-height: 280px;
+    }
+}
+
 }
 
