@@ -949,5 +949,11 @@ footer {
     }
 }
 
+.dashboard-header img{
+     width: 70px;
+    height: auto;
+    display: block;
+}
+
 }
 
