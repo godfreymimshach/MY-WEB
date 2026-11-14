@@ -955,5 +955,75 @@ footer {
     display: block;
 }
 
+/* OUR DELIVERY FLEET */
+
+.delivery-fleet {
+    background: #080d17;
+    padding: 50px 35px;
+    margin-top: 30px;
+    border-radius: 18px;
+    color: #ffffff;
+}
+
+.delivery-fleet .section-heading h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+.delivery-fleet .section-heading p {
+    color: #aeb8c5;
+}
+
+.delivery-fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.delivery-vehicle-card {
+    background: #111c2c;
+    border: 1px solid #293d57;
+    border-radius: 14px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.vehicle-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.delivery-vehicle-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 21px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.delivery-vehicle-card p {
+    color: #aeb8c5;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .delivery-fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .delivery-fleet {
+        padding: 30px 18px;
+    }
+
+    .delivery-fleet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 }
 
