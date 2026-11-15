@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Driver Registration | MIMSCO Logistics</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>MIMSCO LOGISTICS</h1>
+        <p>Driver & Vehicle Registration</p>
+    </header>
+
+    <main>
+        <h2>Register as a Delivery Partner</h2>
+
+        <p>
+            Register your vehicle with MIMSCO Logistics.
+            Your application will be reviewed before approval.
+        </p>
+
+
+<form id="driverRegistrationForm">
+
+    <h3>Personal Information</h3>
+
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName"
+           placeholder="Enter your full name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email"
+           placeholder="Enter your email address" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone"
+           placeholder="Enter your phone number" required>
+
+
+   <h3>Vehicle Information</h3>
+
+    <label for="vehicleType">What type of vehicle do you drive?</label>
+
+    <select id="vehicleType" name="vehicleType" required>
+        <option value="">Select Vehicle Type</option>
+        <option value="motorcycle">Motorcycle / Bike</option>
+        <option value="car">Car</option>
+        <option value="van">Delivery Van</option>
+        <option value="truck">Truck</option>
+    </select>
+
+
+    <label for="vehicleModel">Vehicle Make and Model</label>
+    <input type="text" id="vehicleModel" name="vehicleModel"
+           placeholder="e.g. Toyota Corolla" required>
+
+    <label for="vehicleYear">Vehicle Year</label>
+    <input type="number" id="vehicleYear" name="vehicleYear"
+           placeholder="e.g. 2022" min="1980" max="2026" required>
+
+    <label for="plateNumber">Vehicle Registration Number</label>
+    <input type="text" id="plateNumber" name="plateNumber"
+           placeholder="Enter vehicle plate number" required>
+
+    
+    <h3>Operating Location</h3>
+
+    <label for="state">State</label>
+    <select id="state" name="state" required>
+        <option value="">Select State</option>
+        <option value="Lagos">Lagos</option>
+        <option value="Abuja">FCT - Abuja</option>
+        <option value="Ogun">Ogun</option>
+        <option value="Oyo">Oyo</option>
+        <option value="Rivers">Rivers</option>
+        <option value="Kano">Kano</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="city">City or Area</label>
+    <input type="text" id="city" name="city"
+           placeholder="e.g. Ikeja, Lagos" required>
+
+
+    <h3>Vehicle Photograph</h3>
+
+    <label for="vehiclePhoto">
+        Upload a clear photograph of your vehicle
+    </label>
+
+    <input
+        type="file"
+        id="vehiclePhoto"
+        name="vehiclePhoto"
+        accept="image/*"
+        required
+    >
+
+    <h3>Driver's Licence</h3>
+
+    <label for="driverLicense">
+        Upload a photograph of your valid driver's licence
+    </label>
+
+    <input
+        type="file"
+        id="driverLicense"
+        name="driverLicense"
+        accept="image/*,.pdf"
+        required
+    >
+
+    
+    <div class="registration-notice">
+        <p>
+            By submitting this application, you agree that
+            MIMSCO Logistics may review your information
+            and vehicle documents before approval.
+        </p>
+    </div>
+
+    <button type="submit" id="submitRegistration">
+        SUBMIT APPLICATION
+    </button>
+
+</form>
+
+
+    </main>
+
+</body>
+</html>

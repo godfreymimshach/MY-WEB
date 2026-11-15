@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MIMSCO Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <header class="admin-header">
+
+        <h1>MIMSCO ADMIN</h1>
+
+        <p>Management Dashboard</p>
+
+    </header>
+
+    <main class="admin-container">
+
+        <section class="admin-welcome">
+            <h2>Welcome, Administrator</h2>
+
+            <p>
+                Manage driver applications, vehicles and
+                customer bookings from one place.
+            </p>
+        </section>
+
+
+        <!-- ADMIN STATISTICS -->
+
+        <section class="admin-stats">
+
+            <div class="admin-stat-card">
+                <span>👨‍✈️</span>
+                <h3>Total Drivers</h3>
+                <strong>0</strong>
+            </div>
+
+            <div class="admin-stat-card">
+                <span>⏳</span>
+                <h3>Pending Applications</h3>
+                <strong>0</strong>
+            </div>
+
+            <div class="admin-stat-card">
+                <span>🚚</span>
+                <h3>Approved Vehicles</h3>
+                <strong>0</strong>
+            </div>
+
+            <div class="admin-stat-card">
+                <span>📦</span>
+                <h3>Total Bookings</h3>
+                <strong>0</strong>
+            </div>
+
+        </section>
+
+                <!-- DRIVER APPLICATIONS -->
+
+        <section class="admin-section">
+
+            <h2>Driver Applications</h2>
+
+            <p>
+                Review new drivers who want to join
+                the MIMSCO delivery fleet.
+            </p>
+
+            <div class="admin-table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Driver Name</th>
+                            <th>Vehicle Type</th>
+                            <th>Location</th>
+                            <th>Application Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>No applications yet</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Pending</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+                <!-- VEHICLE MANAGEMENT -->
+
+        <section class="admin-section">
+
+            <h2>Vehicle Management</h2>
+
+            <p>
+                Manage vehicles submitted by registered drivers.
+            </p>
+
+            <div class="admin-table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Vehicle Type</th>
+                            <th>Vehicle Model</th>
+                            <th>Registration Number</th>
+                            <th>Driver</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>No vehicles registered yet</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+                <!-- APPROVED FLEET -->
+
+        <section class="admin-section">
+
+            <h2>Approved Fleet</h2>
+
+            <p>
+                These are vehicles approved to receive MIMSCO bookings.
+            </p>
+
+            <div class="admin-table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Driver</th>
+                            <th>Vehicle Type</th>
+                            <th>Vehicle Model</th>
+                            <th>Location</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>No approved vehicles yet</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+                <!-- CUSTOMER BOOKINGS -->
+
+        <section class="admin-section">
+
+            <h2>Customer Bookings</h2>
+
+            <p>
+                Monitor bookings made by MIMSCO customers.
+            </p>
+
+            <div class="admin-table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Customer</th>
+                            <th>Vehicle Type</th>
+                            <th>Pickup Location</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>No bookings yet</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

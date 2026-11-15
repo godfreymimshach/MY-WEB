@@ -762,6 +762,8 @@ footer {
     .map-placeholder {
         min-height: 250px;
     }
+
+}
    
    
     /* LOGIN BUTTON LOADING STATE */
@@ -1124,5 +1126,264 @@ footer {
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+
+
+/* DRIVER REGISTRATION PAGE */
+
+#driverRegistrationForm {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: white;
 }
+
+#driverRegistrationForm h3 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: #f5b400;
+}
+
+#driverRegistrationForm label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+#driverRegistrationForm input,
+#driverRegistrationForm select {
+    width: 100%;
+    padding: 13px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#driverRegistrationForm input[type="file"] {
+    padding: 10px;
+}
+
+#submitRegistration {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #f5b400;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#submitRegistration:hover {
+    background: #ffc928;
+}
+
+.registration-notice {
+    margin-top: 25px;
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* MIMSCO DRIVER REGISTRATION PAGE */
+
+#driverRegistrationForm {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: white;
+}
+
+#driverRegistrationForm h3 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: #f5b400;
+}
+
+#driverRegistrationForm label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+#driverRegistrationForm input,
+#driverRegistrationForm select {
+    width: 100%;
+    padding: 13px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#driverRegistrationForm input[type="file"] {
+    padding: 10px;
+}
+
+#submitRegistration {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #f5b400;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.registration-notice {
+    margin-top: 25px;
+    color: #ccc;
+    font-size: 13px;
+}
+/* =========================
+   MIMSCO ADMIN DASHBOARD
+========================= */
+
+.admin-page {
+    background: #080808;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.admin-header {
+    background: #111;
+    padding: 25px 40px;
+    border-bottom: 2px solid #f5b400;
+}
+
+.admin-header h1 {
+    color: #f5b400;
+    margin: 0;
+}
+
+.admin-header p {
+    color: #ccc;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+}
+
+.admin-welcome {
+    margin-bottom: 35px;
+}
+
+.admin-welcome h2,
+.admin-section h2 {
+    color: #f5b400;
+}
+
+/* STATISTICS CARDS */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.admin-stat-card {
+    background: #151515;
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.admin-stat-card span {
+    font-size: 28px;
+}
+
+.admin-stat-card h3 {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.admin-stat-card strong {
+    color: #f5b400;
+    font-size: 28px;
+}
+
+/* ADMIN SECTIONS */
+
+.admin-section {
+    background: #111;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.admin-section p {
+    color: #bbb;
+}
+
+/* TABLES */
+
+.admin-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.admin-section table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.admin-section th,
+.admin-section td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+.admin-section th {
+    color: #f5b400;
+    background: #1b1b1b;
+}
+
+.admin-section td {
+    color: #ddd;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-container {
+        padding: 15px;
+    }
+
+    .admin-header {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 
