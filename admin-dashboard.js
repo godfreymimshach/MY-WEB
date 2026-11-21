@@ -1,25 +1,26 @@
 
 import { supabase } from './supabase.js';
 
-// 1. Check administrator access
+// Check administrator access
 const { data, error } = await supabase.auth.getSession();
 
 if (error || !data.session) {
     window.location.replace('login.html');
 } else {
-    const user = data.session.user;
-    const userRole = user.app_metadata?.role;
+    const userRole = data.session.user.app_metadata?.role;
 
     if (userRole !== 'admin') {
         window.location.replace('login.html');
     } else {
-        // 2. Load driver applications
         loadApplications();
     }
 }
 
+// Load driver applications
 async function loadApplications() {
     const table = document.getElementById('applicationsTable');
+
+    table.textContent = 'Loading applications...';
 
     const { data: applications, error } = await supabase
         .from('driver_applications')
@@ -27,25 +28,24 @@ async function loadApplications() {
         .order('created_at', { ascending: false });
 
     if (error) {
-        table.innerHTML = `
-            <tr>
-                <td colspan="5">Could not load applications.</td>
-            </tr>
-        `;
+        table.textContent = 'Could not load applications.';
         console.error(error);
         return;
     }
 
+    table.replaceChildren();
+
     if (!applications || applications.length === 0) {
-        table.innerHTML = `
-            <tr>
-                <td colspan="5">No applications yet.</td>
-            </tr>
-        `;
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 5;
+        cell.textContent = 'No applications yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
         return;
     }
-
-    table.innerHTML = '';
 
     applications.forEach(application => {
         const row = document.createElement('tr');
@@ -54,8 +54,7 @@ async function loadApplications() {
             application.full_name,
             application.vehicle_type,
             `${application.city || ''}, ${application.state || ''}`,
-            application.application_status,
-            'Review pending'
+            application.application_status
         ];
 
         values.forEach(value => {
@@ -64,6 +63,48 @@ async function loadApplications() {
             row.appendChild(cell);
         });
 
+        // Create action buttons
+        const actionCell = document.createElement('td');
+
+        if (application.application_status === 'pending') {
+            const approveButton = document.createElement('button');
+            approveButton.textContent = 'Approve';
+
+            approveButton.addEventListener('click', () => {
+                updateApplication(application.id, 'approved');
+            });
+
+            const rejectButton = document.createElement('button');
+            rejectButton.textContent = 'Reject';
+
+            rejectButton.addEventListener('click', () => {
+                updateApplication(application.id, 'rejected');
+            });
+
+            actionCell.append(approveButton, rejectButton);
+        } else {
+            actionCell.textContent = 'Reviewed';
+        }
+
+        row.appendChild(actionCell);
         table.appendChild(row);
     });
+}
+
+// Approve or reject an application
+async function updateApplication(id, status) {
+    const { error } = await supabase
+        .from('driver_applications')
+        .update({ application_status: status })
+        .eq('id', id);
+
+    if (error) {
+        alert('Could not update application. Please try again.');
+        console.error(error);
+        return;
+    }
+
+    alert(`Application ${status} successfully!`);
+
+    loadApplications();
 }
