@@ -11,9 +11,63 @@ if (error || !data.session) {
 
     if (userRole !== 'admin') {
         window.location.replace('login.html');
-    } else {
-        loadApplications();
+   } else {
+    loadApplications();
+    loadVehicles();
+}
+
+// Load registered vehicles
+async function loadVehicles() {
+    const table = document.getElementById('vehiclesTable');
+
+    table.textContent = 'Loading vehicles...';
+
+    const { data: vehicles, error } = await supabase
+        .from('driver_applications')
+        .select('full_name, vehicle_type, vehicle_model, plate_number, application_status')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        table.textContent = 'Could not load vehicles.';
+        console.error(error);
+        return;
     }
+
+    table.replaceChildren();
+
+    if (!vehicles || vehicles.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 5;
+        cell.textContent = 'No vehicles registered yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
+        return;
+    }
+
+    vehicles.forEach(vehicle => {
+        const row = document.createElement('tr');
+
+        const values = [
+            vehicle.vehicle_type,
+            vehicle.vehicle_model,
+            vehicle.plate_number,
+            vehicle.full_name,
+            vehicle.application_status
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value || '—';
+            row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+    });
+}
+
 }
 
 // Load driver applications
