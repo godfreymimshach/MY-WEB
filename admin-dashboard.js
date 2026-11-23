@@ -14,6 +14,7 @@ if (error || !data.session) {
    } else {
     loadApplications();
     loadVehicles();
+    loadBookings();
 }
 
 // Load registered vehicles
@@ -31,6 +32,61 @@ async function loadVehicles() {
         table.textContent = 'Could not load vehicles.';
         console.error(error);
         return;
+
+
+// Load customer bookings
+async function loadBookings() {
+    const table = document.getElementById('bookingsTable');
+
+    table.textContent = 'Loading bookings...';
+
+    const { data: bookings, error } = await supabase
+        .from('customer_bookings')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        table.textContent = 'Could not load customer bookings.';
+        console.error(error);
+        return;
+    }
+
+    table.replaceChildren();
+
+    if (!bookings || bookings.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 6;
+        cell.textContent = 'No customer bookings yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
+        return;
+    }
+
+    bookings.forEach(booking => {
+        const row = document.createElement('tr');
+
+        const values = [
+            booking.id,
+            booking.customer_name,
+            booking.vehicle_type,
+            booking.pickup_location,
+            booking.destination,
+            booking.booking_status
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value || '—';
+            row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+    });
+}
+
     }
 
     table.replaceChildren();
