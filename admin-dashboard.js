@@ -11,13 +11,91 @@ if (error || !data.session) {
 
     if (userRole !== 'admin') {
         window.location.replace('login.html');
-   } else {
-    loadApplications();
-    loadVehicles();
-    loadBookings();
+    } else {
+        loadApplications();
+        loadVehicles();
+        loadApprovedFleet();
+        loadBookings();
+    }
 }
 
-// Load registered vehicles
+
+// LOAD DRIVER APPLICATIONS
+async function loadApplications() {
+    const table = document.getElementById('applicationsTable');
+
+    table.textContent = 'Loading applications...';
+
+    const { data: applications, error } = await supabase
+        .from('driver_applications')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        table.textContent = 'Could not load applications.';
+        console.error(error);
+        return;
+    }
+
+    table.replaceChildren();
+
+    if (!applications || applications.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 5;
+        cell.textContent = 'No applications yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
+        return;
+    }
+
+    applications.forEach(application => {
+        const row = document.createElement('tr');
+
+        const values = [
+            application.full_name,
+            application.vehicle_type,
+            `${application.city || ''}, ${application.state || ''}`,
+            application.application_status
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value || '—';
+            row.appendChild(cell);
+        });
+
+        const actionCell = document.createElement('td');
+
+        if (application.application_status === 'pending') {
+            const approveButton = document.createElement('button');
+            approveButton.textContent = 'Approve';
+
+            approveButton.addEventListener('click', () => {
+                updateApplication(application.id, 'approved');
+            });
+
+            const rejectButton = document.createElement('button');
+            rejectButton.textContent = 'Reject';
+
+            rejectButton.addEventListener('click', () => {
+                updateApplication(application.id, 'rejected');
+            });
+
+            actionCell.append(approveButton, rejectButton);
+        } else {
+            actionCell.textContent = 'Reviewed';
+        }
+
+        row.appendChild(actionCell);
+        table.appendChild(row);
+    });
+}
+
+
+// LOAD REGISTERED VEHICLES
 async function loadVehicles() {
     const table = document.getElementById('vehiclesTable');
 
@@ -32,9 +110,99 @@ async function loadVehicles() {
         table.textContent = 'Could not load vehicles.';
         console.error(error);
         return;
+    }
+
+    table.replaceChildren();
+
+    if (!vehicles || vehicles.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 5;
+        cell.textContent = 'No vehicles registered yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
+        return;
+    }
+
+    vehicles.forEach(vehicle => {
+        const row = document.createElement('tr');
+
+        const values = [
+            vehicle.vehicle_type,
+            vehicle.vehicle_model,
+            vehicle.plate_number,
+            vehicle.full_name,
+            vehicle.application_status
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value || '—';
+            row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+    });
+}
 
 
-// Load customer bookings
+// LOAD APPROVED FLEET
+async function loadApprovedFleet() {
+    const table = document.getElementById('approvedFleetTable');
+
+    table.textContent = 'Loading approved vehicles...';
+
+    const { data: vehicles, error } = await supabase
+        .from('driver_applications')
+        .select('full_name, vehicle_type, vehicle_model, state, city, application_status')
+        .eq('application_status', 'approved')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        table.textContent = 'Could not load approved vehicles.';
+        console.error(error);
+        return;
+    }
+
+    table.replaceChildren();
+
+    if (!vehicles || vehicles.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+
+        cell.colSpan = 5;
+        cell.textContent = 'No approved vehicles yet.';
+
+        row.appendChild(cell);
+        table.appendChild(row);
+        return;
+    }
+
+    vehicles.forEach(vehicle => {
+        const row = document.createElement('tr');
+
+        const values = [
+            vehicle.full_name,
+            vehicle.vehicle_type,
+            vehicle.vehicle_model,
+            `${vehicle.city || ''}, ${vehicle.state || ''}`,
+            'Approved'
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value || '—';
+            row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+    });
+}
+
+
+// LOAD CUSTOMER BOOKINGS
 async function loadBookings() {
     const table = document.getElementById('bookingsTable');
 
@@ -87,121 +255,8 @@ async function loadBookings() {
     });
 }
 
-    }
 
-    table.replaceChildren();
-
-    if (!vehicles || vehicles.length === 0) {
-        const row = document.createElement('tr');
-        const cell = document.createElement('td');
-
-        cell.colSpan = 5;
-        cell.textContent = 'No vehicles registered yet.';
-
-        row.appendChild(cell);
-        table.appendChild(row);
-        return;
-    }
-
-    vehicles.forEach(vehicle => {
-        const row = document.createElement('tr');
-
-        const values = [
-            vehicle.vehicle_type,
-            vehicle.vehicle_model,
-            vehicle.plate_number,
-            vehicle.full_name,
-            vehicle.application_status
-        ];
-
-        values.forEach(value => {
-            const cell = document.createElement('td');
-            cell.textContent = value || '—';
-            row.appendChild(cell);
-        });
-
-        table.appendChild(row);
-    });
-}
-
-}
-
-// Load driver applications
-async function loadApplications() {
-    const table = document.getElementById('applicationsTable');
-
-    table.textContent = 'Loading applications...';
-
-    const { data: applications, error } = await supabase
-        .from('driver_applications')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-    if (error) {
-        table.textContent = 'Could not load applications.';
-        console.error(error);
-        return;
-    }
-
-    table.replaceChildren();
-
-    if (!applications || applications.length === 0) {
-        const row = document.createElement('tr');
-        const cell = document.createElement('td');
-
-        cell.colSpan = 5;
-        cell.textContent = 'No applications yet.';
-
-        row.appendChild(cell);
-        table.appendChild(row);
-        return;
-    }
-
-    applications.forEach(application => {
-        const row = document.createElement('tr');
-
-        const values = [
-            application.full_name,
-            application.vehicle_type,
-            `${application.city || ''}, ${application.state || ''}`,
-            application.application_status
-        ];
-
-        values.forEach(value => {
-            const cell = document.createElement('td');
-            cell.textContent = value || '—';
-            row.appendChild(cell);
-        });
-
-        // Create action buttons
-        const actionCell = document.createElement('td');
-
-        if (application.application_status === 'pending') {
-            const approveButton = document.createElement('button');
-            approveButton.textContent = 'Approve';
-
-            approveButton.addEventListener('click', () => {
-                updateApplication(application.id, 'approved');
-            });
-
-            const rejectButton = document.createElement('button');
-            rejectButton.textContent = 'Reject';
-
-            rejectButton.addEventListener('click', () => {
-                updateApplication(application.id, 'rejected');
-            });
-
-            actionCell.append(approveButton, rejectButton);
-        } else {
-            actionCell.textContent = 'Reviewed';
-        }
-
-        row.appendChild(actionCell);
-        table.appendChild(row);
-    });
-}
-
-// Approve or reject an application
+// APPROVE OR REJECT APPLICATION
 async function updateApplication(id, status) {
     const { error } = await supabase
         .from('driver_applications')
@@ -217,4 +272,6 @@ async function updateApplication(id, status) {
     alert(`Application ${status} successfully!`);
 
     loadApplications();
+    loadVehicles();
+    loadApprovedFleet();
 }
