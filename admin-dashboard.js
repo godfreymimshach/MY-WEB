@@ -203,6 +203,8 @@ async function loadApprovedFleet() {
 
 
 // LOAD CUSTOMER BOOKINGS
+
+// LOAD CUSTOMER BOOKINGS
 async function loadBookings() {
     const table = document.getElementById('bookingsTable');
 
@@ -225,7 +227,7 @@ async function loadBookings() {
         const row = document.createElement('tr');
         const cell = document.createElement('td');
 
-        cell.colSpan = 6;
+        cell.colSpan = 7;
         cell.textContent = 'No customer bookings yet.';
 
         row.appendChild(cell);
@@ -251,8 +253,61 @@ async function loadBookings() {
             row.appendChild(cell);
         });
 
+        const actionCell = document.createElement('td');
+
+        if (booking.booking_status === 'pending') {
+            const approveButton = document.createElement('button');
+            approveButton.textContent = 'Approve';
+
+            approveButton.addEventListener('click', () => {
+                updateBooking(booking.id, 'approved');
+            });
+
+            const rejectButton = document.createElement('button');
+            rejectButton.textContent = 'Reject';
+
+            rejectButton.addEventListener('click', () => {
+                updateBooking(booking.id, 'rejected');
+            });
+
+            actionCell.append(approveButton, rejectButton);
+
+        } else if (booking.booking_status === 'approved') {
+            const completeButton = document.createElement('button');
+            completeButton.textContent = 'Complete';
+
+            completeButton.addEventListener('click', () => {
+                updateBooking(booking.id, 'completed');
+            });
+
+            actionCell.appendChild(completeButton);
+
+        } else {
+            actionCell.textContent = 'Reviewed';
+        }
+
+        row.appendChild(actionCell);
         table.appendChild(row);
     });
+}
+
+
+// UPDATE CUSTOMER BOOKING STATUS
+async function updateBooking(id, status) {
+    const { error } = await supabase
+        .from('customer_bookings')
+        .update({ booking_status: status })
+        .eq('id', id);
+
+    if (error) {
+        alert('Could not update booking. Please try again.');
+        console.error(error);
+        return;
+    }
+
+    alert(`Booking ${status} successfully!`);
+
+    loadBookings();
 }
 
 
