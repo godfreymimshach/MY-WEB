@@ -1384,6 +1384,101 @@ footer {
         grid-template-columns: 1fr;
     }
 
+
+/* =================================
+   MIMSCO CUSTOMER BOOKING FORM
+================================= */
+
+.dashboard-page #new-shipment {
+    padding: 40px;
+    margin: 30px 0;
+    background: #101820;
+    border: 1px solid #293d50;
+    border-radius: 16px;
+}
+
+.dashboard-page #new-shipment h2 {
+    color: #f5b400;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.dashboard-page #new-shipment > p {
+    color: #aeb8c5;
+    margin-bottom: 30px;
+}
+
+.dashboard-page #customerBookingForm {
+    max-width: 750px;
+    padding: 30px;
+    background: #151e29;
+    border: 1px solid #293d50;
+    border-radius: 14px;
+}
+
+.dashboard-page #customerBookingForm .form-group {
+    margin-bottom: 22px;
+}
+
+.dashboard-page #customerBookingForm label {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.dashboard-page #customerBookingForm input,
+.dashboard-page #customerBookingForm select {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px;
+    background: #0b1119;
+    color: #ffffff;
+    border: 1px solid #35465a;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+.dashboard-page #customerBookingForm input:focus,
+.dashboard-page #customerBookingForm select:focus {
+    border-color: #f5b400;
+}
+
+.dashboard-page #customerBookingForm button {
+    width: 100%;
+    min-height: 54px;
+    background: #f5b400;
+    color: #111111;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dashboard-page #customerBookingForm button:hover {
+    background: #ffd044;
+}
+
+.dashboard-page #customerBookingForm button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .dashboard-page #new-shipment {
+        padding: 22px 15px;
+    }
+
+    .dashboard-page #customerBookingForm {
+        padding: 20px 15px;
+    }
+}
+
 }
 
 
