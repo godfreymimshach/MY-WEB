@@ -1479,6 +1479,44 @@ footer {
     }
 }
 
+/* BECOME A DRIVER SECTION */
+.dashboard-page .become-driver-section {
+    background: #101820;
+    border: 1px solid #293d50;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.dashboard-page .become-driver-section h2 {
+    color: #f5b400;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.dashboard-page .become-driver-section p {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.dashboard-page .become-driver-btn {
+    display: inline-block;
+    background: #f5b400;
+    color: #111111;
+    padding: 14px 30px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dashboard-page .become-driver-btn:hover {
+    background: #ffd044;
+    transform: translateY(-2px);
+}
+
 }
 
 
