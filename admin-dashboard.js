@@ -189,9 +189,6 @@ async function loadVehicles() {
     vehicles.forEach(vehicle => {
         const row = document.createElement('tr');
 
-// VEHICLE PHOTO
-const photoCell = document.createElement('td');
-
 if (vehicle.vehicle_photo_path) {
     const { data } = supabase.storage
         .from('vehicle-photos')
