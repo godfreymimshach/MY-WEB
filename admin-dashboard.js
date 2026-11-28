@@ -54,13 +54,13 @@ async function loadApplications() {
     applications.forEach(application => {
         const row = document.createElement('tr');
 
-        const values = [
-            application.full_name,
-            application.vehicle_type,
-            `${application.city || ''}, ${application.state || ''}`,
-            application.application_status
-        ];
-
+       const values = [
+    application.full_name,
+    application.vehicle_type,
+    application.service_type,
+    `${application.city || ''}, ${application.state || ''}`,
+    application.application_status
+];
         values.forEach(value => {
             const cell = document.createElement('td');
             cell.textContent = value || '—';
@@ -103,7 +103,7 @@ async function loadVehicles() {
 
     const { data: vehicles, error } = await supabase
         .from('driver_applications')
-        .select('full_name, vehicle_type, vehicle_model, plate_number, application_status')
+        .select('full_name, vehicle_type, service_type, vehicle_model, plate_number, application_status')
         .order('created_at', { ascending: false });
 
     if (error) {
@@ -129,13 +129,14 @@ async function loadVehicles() {
     vehicles.forEach(vehicle => {
         const row = document.createElement('tr');
 
-        const values = [
-            vehicle.vehicle_type,
-            vehicle.vehicle_model,
-            vehicle.plate_number,
-            vehicle.full_name,
-            vehicle.application_status
-        ];
+       const values = [
+    vehicle.vehicle_type,
+    vehicle.service_type,
+    vehicle.vehicle_model,
+    vehicle.plate_number,
+    vehicle.full_name,
+    vehicle.application_status
+];
 
         values.forEach(value => {
             const cell = document.createElement('td');
@@ -156,7 +157,7 @@ async function loadApprovedFleet() {
 
     const { data: vehicles, error } = await supabase
         .from('driver_applications')
-        .select('full_name, vehicle_type, vehicle_model, state, city, application_status')
+        .select('full_name, vehicle_type, service_type, vehicle_model, state, city, application_status')
         .eq('application_status', 'approved')
         .order('created_at', { ascending: false });
 
@@ -184,12 +185,13 @@ async function loadApprovedFleet() {
         const row = document.createElement('tr');
 
         const values = [
-            vehicle.full_name,
-            vehicle.vehicle_type,
-            vehicle.vehicle_model,
-            `${vehicle.city || ''}, ${vehicle.state || ''}`,
-            'Approved'
-        ];
+    vehicle.full_name,
+    vehicle.vehicle_type,
+    vehicle.service_type,
+    vehicle.vehicle_model,
+    `${vehicle.city || ''}, ${vehicle.state || ''}`,
+    'Approved'
+];
 
         values.forEach(value => {
             const cell = document.createElement('td');
@@ -238,12 +240,13 @@ async function loadBookings() {
     bookings.forEach(booking => {
         const row = document.createElement('tr');
 
-        const values = [
-            booking.id,
-            booking.customer_name,
-            booking.vehicle_type,
-            booking.pickup_location,
-            booking.destination,
+       const values = [
+             booking.id,
+             booking.customer_name,
+              booking.vehicle_type,
+             booking.service_purpose,
+             booking.pickup_location,
+             booking.destination,
             booking.booking_status
         ];
 

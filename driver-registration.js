@@ -50,6 +50,9 @@ form.addEventListener('submit', async (event) => {
         const vehicleType =
             document.getElementById('vehicleType').value;
 
+        const serviceType = 
+            document.getElementById('serviceType').value;
+
         const vehicleModel =
             document.getElementById('vehicleModel').value.trim();
 
@@ -108,6 +111,7 @@ form.addEventListener('submit', async (event) => {
                 email: email,
                 phone: phone,
                 vehicle_type: vehicleType,
+                service_type: serviceType,
                 vehicle_model: vehicleModel,
                 vehicle_year: vehicleYear,
                 plate_number: plateNumber,

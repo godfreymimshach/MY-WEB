@@ -115,6 +115,8 @@ bookingForm.addEventListener('submit', async (event) => {
         const vehicleType =
             document.getElementById('vehicleType').value;
 
+        const servicePurpose = document.getElementById('servicePurpose').value;
+
         const pickupLocation =
             document.getElementById('pickupLocation').value.trim();
 
@@ -128,6 +130,7 @@ bookingForm.addEventListener('submit', async (event) => {
                 user_id: user.id,
                 customer_name: customerName,
                 vehicle_type: vehicleType,
+                service_purpose: servicePurpose,
                 pickup_location: pickupLocation,
                 destination: destination,
                 booking_status: 'pending'
