@@ -118,15 +118,26 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="pickupLocation">Pickup Location</label>
-            <input
-                type="text"
-                id="pickupLocation"
-                placeholder="Enter pickup location"
-                required
-            >
-        </div>
+       <div class="form-group">
+    <label for="pickupLocation">Pickup Location</label>
+
+    <input
+        type="text"
+        id="pickupLocation"
+        placeholder="Search pickup address..."
+        autocomplete="off"
+        required
+    >
+
+    <div id="pickupSuggestions"></div>
+
+    <input type="hidden" id="pickupLatitude">
+    <input type="hidden" id="pickupLongitude">
+
+    <small id="pickupMessage">
+        Search for an address and select a location from the suggestions.
+    </small>
+</div>S
 
         <div class="form-group">
             <label for="destination">Destination</label>

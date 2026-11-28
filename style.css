@@ -1517,6 +1517,40 @@ footer {
     transform: translateY(-2px);
 }
 
+/* Pickup location search suggestions */
+#pickupSuggestions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+    z-index: 10;
+}
+
+#pickupSuggestions button {
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    background: #ffffff;
+    color: #222222;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#pickupSuggestions button:hover {
+    background: #f5b400;
+    color: #000000;
+}
+
+#pickupMessage {
+    display: block;
+    margin-top: 7px;
+    color: #777777;
+    font-size: 12px;
+}
+
 }
 
 
