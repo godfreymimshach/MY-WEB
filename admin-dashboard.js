@@ -164,7 +164,7 @@ async function loadVehicles() {
 
     const { data: vehicles, error } = await supabase
         .from('driver_applications')
-        .select('full_name, vehicle_type, service_type, vehicle_model, plate_number, application_status, vehicle_photo_path')
+        .select('full_name, vehicle_type, service_type, vehicle_model, state, city, application_status, vehicle_photo_path')
         .order('created_at', { ascending: false });
 
     if (error) {
@@ -191,14 +191,13 @@ async function loadVehicles() {
         const row = document.createElement('tr');
 
         const values = [
-            vehicle.vehicle_type,
-            vehicle.service_type,
-            vehicle.vehicle_model,
-            vehicle.plate_number,
-            vehicle.full_name,
-            vehicle.application_status
-        ];
-
+    vehicle.full_name,
+    vehicle.vehicle_type,
+    vehicle.service_type,
+    vehicle.vehicle_model,
+    `${vehicle.city || '—'}, ${vehicle.state || '—'}`,
+    vehicle.application_status
+];
         values.forEach(value => {
             const cell = document.createElement('td');
             cell.textContent = value || '—';
