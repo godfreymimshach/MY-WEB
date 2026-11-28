@@ -88,10 +88,10 @@ form.addEventListener('submit', async (event) => {
         const licensePath =
             `${folder}/license-${Date.now()}-${driverLicense.name}`;
 
-        // 5. Upload vehicle photograph
-        const { error: vehicleUploadError } = await supabase.storage
-            .from('driver-documents')
-            .upload(vehiclePath, vehiclePhoto);
+        // 5. Upload vehicle photograph to the public vehicle-photos bucket
+const { error: vehicleUploadError } = await supabase.storage
+    .from('vehicle-photos')
+    .upload(vehiclePath, vehiclePhoto);
 
         if (vehicleUploadError) throw vehicleUploadError;
 

@@ -116,17 +116,30 @@
             >
         </div>
 
-        <div class="form-group">
-            <label for="vehicleType">Select Vehicle</label>
-            <select id="vehicleType" required>
-                <option value="">Choose a vehicle</option>
-                <option value="truck">Truck</option>
-                <option value="car">Car</option>
-                <option value="van">Van</option>
-                <option value="motorcycle">Motorcycle</option>
-            </select>
-        </div>
+       <div class="form-group">
+    <label for="vehicleType">Select Vehicle Type</label>
 
+    <select id="vehicleType" required>
+        <option value="">Choose a vehicle type</option>
+        <option value="truck">Truck</option>
+        <option value="car">Car</option>
+        <option value="van">Van</option>
+        <option value="motorcycle">Motorcycle</option>
+    </select>
+</div>
+
+<!-- APPROVED VEHICLE SEARCH RESULTS -->
+<div class="form-group">
+    <label>Available Vehicles</label>
+
+    <p>Select a vehicle from the approved fleet below.</p>
+
+    <div id="availableVehicles">
+        <p>Select your service purpose and vehicle type to see available vehicles.</p>
+    </div>
+
+    <input type="hidden" id="selectedVehicleId">
+</div>
        <div class="form-group">
     <label for="pickupLocation">Pickup Location</label>
 
@@ -146,7 +159,7 @@
     <small id="pickupMessage">
         Search for an address and select a location from the suggestions.
     </small>
-</div>S
+</div>
 
         <div class="form-group">
             <label for="destination">Destination</label>
