@@ -156,6 +156,7 @@ async function loadApplications() {
 
 
 // LOAD REGISTERED VEHICLES
+
 async function loadVehicles() {
     const table = document.getElementById('vehiclesTable');
 
@@ -178,7 +179,7 @@ async function loadVehicles() {
         const row = document.createElement('tr');
         const cell = document.createElement('td');
 
-        cell.colSpan = 5;
+        cell.colSpan = 7;
         cell.textContent = 'No vehicles registered yet.';
 
         row.appendChild(cell);
@@ -189,58 +190,14 @@ async function loadVehicles() {
     vehicles.forEach(vehicle => {
         const row = document.createElement('tr');
 
-if (vehicle.vehicle_photo_path) {
-    const { data } = supabase.storage
-        .from('vehicle-photos')
-        .getPublicUrl(vehicle.vehicle_photo_path);
-
-    const image = document.createElement('img');
-    image.src = data.publicUrl;
-    image.alt = 'Vehicle photo';
-    image.style.width = '90px';
-    image.style.height = '65px';
-    image.style.objectFit = 'cover';
-
-    photoCell.appendChild(image);
-} else {
-    photoCell.textContent = 'No photo';
-}
-
-row.appendChild(photoCell);
-
-        table.appendChild(row);
-
-        // APPROVED VEHICLE PHOTO
-const photoCell = document.createElement('td');
-
-if (vehicle.vehicle_photo_path) {
-    const { data } = supabase.storage
-        .from('vehicle-photos')
-        .getPublicUrl(vehicle.vehicle_photo_path);
-
-    const image = document.createElement('img');
-
-    image.src = data.publicUrl;
-    image.alt = 'Approved vehicle';
-    image.style.width = '90px';
-    image.style.height = '65px';
-    image.style.objectFit = 'cover';
-
-    photoCell.appendChild(image);
-} else {
-    photoCell.textContent = 'No photo';
-}
-
-row.appendChild(photoCell);
-
-       const values = [
-    vehicle.vehicle_type,
-    vehicle.service_type,
-    vehicle.vehicle_model,
-    vehicle.plate_number,
-    vehicle.full_name,
-    vehicle.application_status
-];
+        const values = [
+            vehicle.vehicle_type,
+            vehicle.service_type,
+            vehicle.vehicle_model,
+            vehicle.plate_number,
+            vehicle.full_name,
+            vehicle.application_status
+        ];
 
         values.forEach(value => {
             const cell = document.createElement('td');
@@ -248,6 +205,27 @@ row.appendChild(photoCell);
             row.appendChild(cell);
         });
 
+        // VEHICLE PHOTO
+        const photoCell = document.createElement('td');
+
+        if (vehicle.vehicle_photo_path) {
+            const { data } = supabase.storage
+                .from('vehicle-photos')
+                .getPublicUrl(vehicle.vehicle_photo_path);
+
+            const image = document.createElement('img');
+            image.src = data.publicUrl;
+            image.alt = 'Vehicle photo';
+            image.style.width = '90px';
+            image.style.height = '65px';
+            image.style.objectFit = 'cover';
+
+            photoCell.appendChild(image);
+        } else {
+            photoCell.textContent = 'No photo';
+        }
+
+        row.appendChild(photoCell);
         table.appendChild(row);
     });
 }
@@ -361,9 +339,7 @@ async function loadBookings() {
 
         const actionCell = document.createElement('td');
 
-        // Display vehicle photo and driver's licence
-            addApplicationDocuments(actionCell, application);
-
+        
         if (booking.booking_status === 'pending') {
             const approveButton = document.createElement('button');
             approveButton.textContent = 'Approve';
