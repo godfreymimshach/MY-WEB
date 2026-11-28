@@ -309,7 +309,7 @@ async function loadBookings() {
         const row = document.createElement('tr');
         const cell = document.createElement('td');
 
-        cell.colSpan = 7;
+        cell.colSpan = 8;
         cell.textContent = 'No customer bookings yet.';
 
         row.appendChild(cell);
